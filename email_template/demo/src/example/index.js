@@ -49,9 +49,9 @@ const Example = (props) => {
       alert('Design JSON has been logged in your developer console.');
     });
   };
-  const Email = () => { 
-    return window.location.href = "http://localhost:3000/";
-}
+  const Email = () => {
+    return (window.location.href = 'http://localhost:3000/');
+  };
   const exportHtml = () => {
     emailEditorRef.current.editor.exportHtml((data) => {
       const { design, html } = data;
@@ -67,7 +67,7 @@ const Example = (props) => {
         )
         .then((res) => {
           console.log(res);
-          Email()
+          Email();
         })
         .catch((err) => {
           console.log(err);
