@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import EmailEditor from '../../../src';
-import sample from './sample.json';
+const dataSample = require('./sample.json');
+var user_name = 'testing';
+var userName = `<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">${user_name}</span></strong></p>`;
+var data = dataSample;
 
 const Container = styled.div`
   display: flex;
@@ -86,8 +89,18 @@ const Example = (props) => {
       'design:loaded',
       onDesignLoad
     );
-
-    emailEditorRef.current.editor.loadDesign(sample);
+    let result = data.body.rows.map((e) => {
+      e.columns.map((h) => {
+        h.contents.filter((j, num) => {
+          if (j.type == 'text' && num == 2) {
+            j.values.text = userName;
+          }
+        });
+      });
+      return e;
+    });
+    data.body.rows = result; 
+    emailEditorRef.current.editor.loadDesign(data);
   };
 
   const onReady = () => {
