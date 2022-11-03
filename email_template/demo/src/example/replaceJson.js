@@ -9,11 +9,17 @@ var image3 =
   'https://media.tacdn.com/media/attractions-splice-spp-674x446/09/c3/33/97.jpg';
 var data = dataSample;
 
-let result = data.body.rows.map((e) => {
+var cartList = {
+  id: 'DNrfIPkutg',
+  cells: [1, 1],
+  va: 2,
+};
+
+data.body.rows.map((e) => {
+  // console.log(e);
   e.columns.map((h) => {
     h.contents.filter((j, num) => {
       if (j.type == 'image' && num == 0) {
-        console.log(j.id);
         if (j.id == 'E6QqYzhIDp') {
           j.values.src.url = image1;
         }
@@ -29,7 +35,15 @@ let result = data.body.rows.map((e) => {
       }
     });
   });
+  if (e.id == 'DNrfIPkutg') {
+    // console.log(cartList);
+    e = cartList;
+  }
+
+  console.log(e);
+
   return e;
 });
-data.body.rows = result;
-// console.log(JSON.stringify(data), 'resultresult');
+// data.body.rows = result;
+
+// console.log(result, 'resultresult');

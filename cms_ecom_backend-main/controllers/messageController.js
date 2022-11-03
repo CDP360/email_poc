@@ -82,7 +82,7 @@ router.get("/cartlist", async (req, res) => {
   // const { chatId, message } = req.body;
   // console.log(req.body.user_id);
 
-  let userFound = await User.findOne({ _id: req.body.user_id });
+  let userFound = await User.findOne({ _id: req.query.user_id });
 
   var wish = JSON.stringify(userFound);
   var getID = JSON.parse(wish)["wishedProducts"];
