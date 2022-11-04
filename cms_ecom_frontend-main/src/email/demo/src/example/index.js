@@ -54,7 +54,7 @@ const Example = (props) => {
   useEffect(() => {
     let id = '6360fbb6ce0d9a5eea8c9627';
     axios
-      .get('http://localhost:8080/messages/cartlist?user_id=' + id)
+      .get('http://localhost:8080/messages/cartlist')
       .then((res) => {
         if (res.status == 200) {
           console.log('dsdsd', res.data);

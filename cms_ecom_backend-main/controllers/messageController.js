@@ -82,12 +82,17 @@ router.get("/cartlist", async (req, res) => {
   // const { chatId, message } = req.body;
   // console.log(req.body.user_id);
   try {
-    let userFound = await User.findOne({ _id: req.query.user_id });
-
-    var wish = JSON.stringify(userFound);
-    var getID = JSON.parse(wish)["wishedProducts"];
-    console.log("hi", getID);
+    let userFound = await User.find();
+    console.log("dd", userFound);
+    var datas = [];
     var arrayWish = [];
+    var getID = [];
+
+    userFound.map((userFound) => {
+      var wish = JSON.stringify(userFound);
+      getID = JSON.parse(wish)["wishedProducts"];
+      console.log("hi", getID);
+    });
     for (var key in getID) {
       console.log("key", getID[key]);
       let itemFound = await Product.findById(getID[key]);
@@ -96,6 +101,7 @@ router.get("/cartlist", async (req, res) => {
       // let getID1 = JSON.stringify(wish1)
       arrayWish.push(itemFound);
     }
+
     res.status(200).json(arrayWish);
   } catch (err) {
     console.log(err);
