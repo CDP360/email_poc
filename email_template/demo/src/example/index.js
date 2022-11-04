@@ -56,28 +56,30 @@ const Example = (props) => {
     axios
       .get('http://localhost:8080/messages/cartlist?user_id=' + id)
       .then((res) => {
-        console.log('dsdsd', res.data);
-        let userName = 'kalai';
-        let htmlname = `<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">Hey ${userName}!</span></strong></p>`;
-        localStorage.setItem('user_name', userName);
-        localStorage.setItem('nameTag', htmlname);
+        if (res.status == 200) {
+          console.log('dsdsd', res.data);
+          let userName = 'kalai';
+          let htmlname = `<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">Hey ${userName}!</span></strong></p>`;
+          localStorage.setItem('user_name', userName);
+          localStorage.setItem('nameTag', htmlname);
 
-        res.data.forEach((element, num) => {
-          console.log(element.image);
-          if (num == 0) {
-            console.log('sss', element.image);
-            setImage1(element.image);
-            localStorage.setItem('img1', element.image);
-          }
-          if (num == 1) {
-            setImage2(element.image);
-            localStorage.setItem('img2', element.image);
-          }
-          if (num == 2) {
-            setImage3(element.image);
-            localStorage.setItem('img3', element.image);
-          }
-        });
+          res.data.forEach((element, num) => {
+            console.log(element.image);
+            if (num == 0) {
+              console.log('sss', element.image);
+              setImage1(element.image);
+              localStorage.setItem('img1', element.image);
+            }
+            if (num == 1) {
+              setImage2(element.image);
+              localStorage.setItem('img2', element.image);
+            }
+            if (num == 2) {
+              setImage3(element.image);
+              localStorage.setItem('img3', element.image);
+            }
+          });
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -830,42 +832,43 @@ const Example = (props) => {
     // console.log(h);
     // }
     // });
-
-    let result = data.body.rows.map((e) => {
-      e.columns.map((h) => {
-        h.contents.filter((j, num) => {
-          if (j.type == 'image' && num == 0) {
-            console.log(j.id);
-            if (j.id == 'E6QqYzhIDp') {
-              j.values.src.url = logo;
+    if (localStorage.getItem('img1')) {
+      let result = data.body.rows.map((e) => {
+        e.columns.map((h) => {
+          h.contents.filter((j, num) => {
+            if (j.type == 'image' && num == 0) {
+              console.log(j.id);
+              if (j.id == 'E6QqYzhIDp') {
+                j.values.src.url = logo;
+              }
+              if (j.id == 'N89QkLpkI-') {
+                j.values.src.url = localStorage.getItem('img1');
+              }
+              if (j.id == 'bSCv6xONew') {
+                j.values.src.url = localStorage.getItem('img2');
+              }
+              if (j.id == 'bSCv6xONew1') {
+                j.values.src.url = localStorage.getItem('img3');
+              }
             }
-            if (j.id == 'N89QkLpkI-') {
-              j.values.src.url = localStorage.getItem('img1');
+            if (j.type == 'text' && num == 2) {
+              j.values.text = localStorage.getItem('nameTag');
             }
-            if (j.id == 'bSCv6xONew') {
-              j.values.src.url = localStorage.getItem('img2');
-            }
-            if (j.id == 'bSCv6xONew1') {
-              j.values.src.url = localStorage.getItem('img3');
-            }
-          }
-          if (j.type == 'text' && num == 2) {
-            j.values.text = localStorage.getItem('nameTag');
-          }
+          });
         });
+        // if (num == 3) {
+        // }
+        if (e.id == 'DNrfIPkutg') {
+          // console.log(cartList);
+          e = cartList[0];
+        }
+
+        // console.log(e);
+
+        return e;
       });
-      // if (num == 3) {
-      // }
-      if (e.id == 'DNrfIPkutg') {
-        // console.log(cartList);
-        e = cartList[0];
-      }
-
-      // console.log(e);
-
-      return e;
-    });
-    data.body.rows = result;
+      data.body.rows = result;
+    }
     emailEditorRef.current.editor.loadDesign(data);
   };
 
