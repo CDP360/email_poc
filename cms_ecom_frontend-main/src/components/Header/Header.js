@@ -8,19 +8,20 @@ import {
   Tooltip,
   Button,
 } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import {
   BsFillPersonFill,
   BsFillEnvelopeFill,
   BsFillPlusCircleFill,
 } from "react-icons/bs";
-import { IoLogOut } from "react-icons/io5";
-
+import { IoLogOut } from "react-icons/io5"; 
 import "./Header.css";
 function Header() {
   const { userData, setUserData } = useContext(Context);
+  
+  const history = useHistory()
   const Email = () => {
-    return (window.location.href = "http://localhost:3001/");
+    history.push("/editor")
   };
   return (
     <Navbar collapseOnSelect bg="light" variant="light">

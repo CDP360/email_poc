@@ -81,22 +81,25 @@ router.post("/emailsent", async (req, res) => {
 router.get("/cartlist", async (req, res) => {
   // const { chatId, message } = req.body;
   // console.log(req.body.user_id);
+  try {
+    let userFound = await User.findOne({ _id: req.query.user_id });
 
-  let userFound = await User.findOne({ _id: req.query.user_id });
-
-  var wish = JSON.stringify(userFound);
-  var getID = JSON.parse(wish)["wishedProducts"];
-  console.log("hi", getID);
-  var arrayWish = [];
-  for (var key in getID) {
-    console.log("key", getID[key]);
-    let itemFound = await Product.findById(getID[key]);
-    console.log(itemFound);
-    // let wish1 = JSON.parse(itemFound)
-    // let getID1 = JSON.stringify(wish1)
-    arrayWish.push(itemFound);
+    var wish = JSON.stringify(userFound);
+    var getID = JSON.parse(wish)["wishedProducts"];
+    console.log("hi", getID);
+    var arrayWish = [];
+    for (var key in getID) {
+      console.log("key", getID[key]);
+      let itemFound = await Product.findById(getID[key]);
+      console.log(itemFound);
+      // let wish1 = JSON.parse(itemFound)
+      // let getID1 = JSON.stringify(wish1)
+      arrayWish.push(itemFound);
+    }
+    res.status(200).json(arrayWish);
+  } catch (err) {
+    console.log(err);
   }
-  res.status(200).json(arrayWish);
 });
 
 module.exports = router;
