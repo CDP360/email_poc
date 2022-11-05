@@ -79,30 +79,33 @@ router.post("/emailsent", async (req, res) => {
 });
 
 router.get("/cartlist", async (req, res) => {
-  // const { chatId, message } = req.body;
-  // console.log(req.body.user_id);
   try {
+    var list = [];
     let userFound = await User.find();
-    console.log("dd", userFound);
-    var datas = [];
-    var arrayWish = [];
-    var getID = [];
+    for (let index = 1; index < userFound.length; index++) {
+      const element = userFound[index];
+      console.log("key", index, element._id);
+      var idadd = [
+        {
+          user_id: element._id,
+          user_name: element.name,
+          email: element.email,
+          dp: element.avatar,
+        },
+      ];
+      console.log("ccc", element.wishedProducts.length);
+      if (element.wishedProducts.length != 0) {
+        for (const key in element.wishedProducts) {
+          let itemFound = await Product.findOne({
+            _id: element.wishedProducts[key],
+          }).select("_id title price image active");
 
-    userFound.map((userFound) => {
-      var wish = JSON.stringify(userFound);
-      getID = JSON.parse(wish)["wishedProducts"];
-      console.log("hi", getID);
-    });
-    for (var key in getID) {
-      console.log("key", getID[key]);
-      let itemFound = await Product.findById(getID[key]);
-      console.log(itemFound);
-      // let wish1 = JSON.parse(itemFound)
-      // let getID1 = JSON.stringify(wish1)
-      arrayWish.push(itemFound);
+          idadd.push(itemFound);
+        }
+        list.push(idadd);
+      }
     }
-
-    res.status(200).json(arrayWish);
+    res.status(200).json(list);
   } catch (err) {
     console.log(err);
   }

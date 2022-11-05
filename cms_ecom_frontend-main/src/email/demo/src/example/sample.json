@@ -101,7 +101,7 @@
                   "containerPadding": "10px",
                   "anchor": "",
                   "src": {
-                    "url": "https://assets.cdn.msgsndr.com/dJs02EcmedN7BV0yEpv4/media/62eb92ccef6fa889c148e24d.jpeg",
+                    "url": "https://res.cloudinary.com/silenceiv/image/upload/q_auto:eco/v1617358367/defaultAvatar_wnoogh.png",
                     "width": 378,
                     "height": 180,
                     "autoWidth": false,
@@ -185,7 +185,7 @@
                   "duplicatable": true,
                   "deletable": true,
                   "hideable": true,
-                  "text": "<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">vimalvs</span></strong></p>"
+                  "text": "<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">Hey kalai!</span></strong></p>"
                 }
               },
               {
@@ -265,72 +265,6 @@
             "id": "H3UGS9mLqd",
             "contents": [
               {
-                "id": "N89QkLpkI-",
-                "type": "image",
-                "values": {
-                  "containerPadding": "23px",
-                  "anchor": "",
-                  "src": {
-                    "url": "https://is1-2.housingcdn.com/01c16c28/8c68f5a38b9f629af9f4530c666f632f/v0/large/3_bhk_villa-for-sale-kuttoor-Thrissur-bedroom.jpg.webp",
-                    "width": 720,
-                    "height": 480,
-                    "autoWidth": false,
-                    "maxWidth": "79%"
-                  },
-                  "textAlign": "center",
-                  "altText": "Image",
-                  "action": {
-                    "name": "web",
-                    "values": {
-                      "href": "",
-                      "target": "_blank"
-                    }
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_image_5",
-                    "htmlClassNames": "u_content_image"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false
-                }
-              },
-              {
-                "id": "2ePLEnxofX",
-                "type": "text",
-                "values": {
-                  "containerPadding": "10px 10px 0px",
-                  "anchor": "",
-                  "textAlign": "center",
-                  "lineHeight": "140%",
-                  "linkStyle": {
-                    "inherit": true,
-                    "linkColor": "#0000ee",
-                    "linkHoverColor": "#0000ee",
-                    "linkUnderline": true,
-                    "linkHoverUnderline": true
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_text_12",
-                    "htmlClassNames": "u_content_text"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">Ray-Ban</span></strong></span></p>"
-                }
-              },
-              {
                 "id": "JFePfgKYk_",
                 "type": "text",
                 "values": {
@@ -357,7 +291,7 @@
                   "deletable": true,
                   "hideable": true,
                   "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">$20</span></strong></span></p>"
+                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">$1238623</span></strong></span></p>"
                 }
               },
               {
@@ -368,8 +302,12 @@
                   "anchor": "",
                   "href": {
                     "name": "web",
+                    "attrs": {
+                      "href": "{{href}}",
+                      "target": "{{target}}"
+                    },
                     "values": {
-                      "href": "",
+                      "href": "http://localhost:3000/profile/",
                       "target": "_blank"
                     }
                   },
@@ -392,161 +330,6 @@
                   "displayCondition": null,
                   "_meta": {
                     "htmlID": "u_content_button_5",
-                    "htmlClassNames": "u_content_button"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false,
-                  "text": "<span style=\"font-size: 14px; line-height: 16.8px;\">Buy Now</span>",
-                  "calculatedWidth": 104,
-                  "calculatedHeight": 36
-                }
-              }
-            ],
-            "values": {
-              "_meta": {
-                "htmlID": "u_column_21",
-                "htmlClassNames": "u_column"
-              },
-              "border": {},
-              "padding": "0px",
-              "backgroundColor": ""
-            }
-          },
-          {
-            "id": "oq8POGGuS0",
-            "contents": [
-              {
-                "id": "bSCv6xONew",
-                "type": "image",
-                "values": {
-                  "containerPadding": "24px",
-                  "anchor": "",
-                  "src": {
-                    "url": "https://is1-2.housingcdn.com/01c16c28/a2564fa37129e7d45d0b83da0f3edd60/v0/medium/3_bhk_apartment-for-sale-ollur-Thrissur-living_room.jpg.webp",
-                    "width": 400,
-                    "height": 224,
-                    "autoWidth": false,
-                    "maxWidth": "90%"
-                  },
-                  "textAlign": "center",
-                  "altText": "Image",
-                  "action": {
-                    "name": "web",
-                    "values": {
-                      "href": "",
-                      "target": "_blank"
-                    }
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_image_6",
-                    "htmlClassNames": "u_content_image"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false
-                }
-              },
-              {
-                "id": "mN4PAY4KRr",
-                "type": "text",
-                "values": {
-                  "containerPadding": "10px 10px 0px",
-                  "anchor": "",
-                  "textAlign": "center",
-                  "lineHeight": "140%",
-                  "linkStyle": {
-                    "inherit": true,
-                    "linkColor": "#0000ee",
-                    "linkHoverColor": "#0000ee",
-                    "linkUnderline": true,
-                    "linkHoverUnderline": true
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_text_14",
-                    "htmlClassNames": "u_content_text"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">Ray-Ban</span></strong></span></p>"
-                }
-              },
-              {
-                "id": "hRmeZr9B_p",
-                "type": "text",
-                "values": {
-                  "containerPadding": "10px",
-                  "anchor": "",
-                  "textAlign": "center",
-                  "lineHeight": "140%",
-                  "linkStyle": {
-                    "inherit": true,
-                    "linkColor": "#0000ee",
-                    "linkHoverColor": "#0000ee",
-                    "linkUnderline": true,
-                    "linkHoverUnderline": true
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_text_15",
-                    "htmlClassNames": "u_content_text"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">$25</span></strong></span></p>"
-                }
-              },
-              {
-                "id": "v4sPVIMYmw",
-                "type": "button",
-                "values": {
-                  "containerPadding": "10px",
-                  "anchor": "",
-                  "href": {
-                    "name": "web",
-                    "values": {
-                      "href": "",
-                      "target": "_blank"
-                    }
-                  },
-                  "buttonColors": {
-                    "color": "#FFFFFF",
-                    "backgroundColor": "#262425",
-                    "hoverColor": "#FFFFFF",
-                    "hoverBackgroundColor": "#3AAEE0"
-                  },
-                  "size": {
-                    "autoWidth": true,
-                    "width": "100%"
-                  },
-                  "textAlign": "center",
-                  "lineHeight": "120%",
-                  "padding": "10px 20px",
-                  "border": {},
-                  "borderRadius": "0px",
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_button_6",
                     "htmlClassNames": "u_content_button"
                   },
                   "selectable": true,
@@ -563,194 +346,6 @@
             ],
             "values": {
               "_meta": {
-                "htmlID": "u_column_22",
-                "htmlClassNames": "u_column"
-              },
-              "border": {},
-              "padding": "0px",
-              "backgroundColor": ""
-            }
-          }
-        ],
-        "values": {
-          "displayCondition": null,
-          "columns": false,
-          "backgroundColor": "",
-          "columnsBackgroundColor": "#ffffff",
-          "backgroundImage": {
-            "url": "",
-            "fullWidth": true,
-            "repeat": false,
-            "center": true,
-            "cover": false
-          },
-          "padding": "0px",
-          "anchor": "",
-          "hideDesktop": false,
-          "_meta": {
-            "htmlID": "u_row_18",
-            "htmlClassNames": "u_row"
-          },
-          "selectable": true,
-          "draggable": true,
-          "duplicatable": true,
-          "deletable": true,
-          "hideable": true,
-          "hideMobile": false,
-          "noStackMobile": false
-        }
-      },
-      {
-        "id": "DNrfIPkutg1",
-        "cells": [1, 1],
-        "columns": [
-          {
-            "id": "H3UGS9mLqd",
-            "contents": [
-              {
-                "id": "N89QkLpkI-",
-                "type": "image",
-                "values": {
-                  "containerPadding": "23px",
-                  "anchor": "",
-                  "src": {
-                    "url": "https://is1-2.housingcdn.com/01c16c28/8c68f5a38b9f629af9f4530c666f632f/v0/large/3_bhk_villa-for-sale-kuttoor-Thrissur-bedroom.jpg.webp",
-                    "width": 720,
-                    "height": 480,
-                    "autoWidth": false,
-                    "maxWidth": "79%"
-                  },
-                  "textAlign": "center",
-                  "altText": "Image",
-                  "action": {
-                    "name": "web",
-                    "values": {
-                      "href": "",
-                      "target": "_blank"
-                    }
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_image_5",
-                    "htmlClassNames": "u_content_image"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false
-                }
-              },
-              {
-                "id": "2ePLEnxofX",
-                "type": "text",
-                "values": {
-                  "containerPadding": "10px 10px 0px",
-                  "anchor": "",
-                  "textAlign": "center",
-                  "lineHeight": "140%",
-                  "linkStyle": {
-                    "inherit": true,
-                    "linkColor": "#0000ee",
-                    "linkHoverColor": "#0000ee",
-                    "linkUnderline": true,
-                    "linkHoverUnderline": true
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_text_12",
-                    "htmlClassNames": "u_content_text"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">Ray-Ban</span></strong></span></p>"
-                }
-              },
-              {
-                "id": "JFePfgKYk_",
-                "type": "text",
-                "values": {
-                  "containerPadding": "10px",
-                  "anchor": "",
-                  "textAlign": "center",
-                  "lineHeight": "140%",
-                  "linkStyle": {
-                    "inherit": true,
-                    "linkColor": "#0000ee",
-                    "linkHoverColor": "#0000ee",
-                    "linkUnderline": true,
-                    "linkHoverUnderline": true
-                  },
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_text_13",
-                    "htmlClassNames": "u_content_text"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">$20</span></strong></span></p>"
-                }
-              },
-              {
-                "id": "tHfZ4TNZ7D",
-                "type": "button",
-                "values": {
-                  "containerPadding": "10px",
-                  "anchor": "",
-                  "href": {
-                    "name": "web",
-                    "values": {
-                      "href": "",
-                      "target": "_blank"
-                    }
-                  },
-                  "buttonColors": {
-                    "color": "#FFFFFF",
-                    "backgroundColor": "#262425",
-                    "hoverColor": "#FFFFFF",
-                    "hoverBackgroundColor": "#3AAEE0"
-                  },
-                  "size": {
-                    "autoWidth": true,
-                    "width": "100%"
-                  },
-                  "textAlign": "center",
-                  "lineHeight": "120%",
-                  "padding": "10px 20px",
-                  "border": {},
-                  "borderRadius": "0px",
-                  "hideDesktop": false,
-                  "displayCondition": null,
-                  "_meta": {
-                    "htmlID": "u_content_button_5",
-                    "htmlClassNames": "u_content_button"
-                  },
-                  "selectable": true,
-                  "draggable": true,
-                  "duplicatable": true,
-                  "deletable": true,
-                  "hideable": true,
-                  "hideMobile": false,
-                  "text": "<span style=\"font-size: 14px; line-height: 16.8px;\">Buy Now</span>",
-                  "calculatedWidth": 104,
-                  "calculatedHeight": 36
-                }
-              }
-            ],
-            "values": {
-              "_meta": {
                 "htmlID": "u_column_21",
                 "htmlClassNames": "u_column"
               },
@@ -769,11 +364,11 @@
                   "containerPadding": "24px",
                   "anchor": "",
                   "src": {
-                    "url": "https://is1-2.housingcdn.com/01c16c28/a2564fa37129e7d45d0b83da0f3edd60/v0/medium/3_bhk_apartment-for-sale-ollur-Thrissur-living_room.jpg.webp",
+                    "url": "http://res.cloudinary.com/silenceiv/image/upload/c_fit,q_auto,f_auto,w_800/v1667545790/glywao1nywa35pqzftsn.jpg",
                     "width": 400,
                     "height": 224,
-                    "autoWidth": false,
-                    "maxWidth": "90%"
+                    "autoWidth": true,
+                    "maxWidth": "100%"
                   },
                   "textAlign": "center",
                   "altText": "Image",
@@ -795,7 +390,12 @@
                   "duplicatable": true,
                   "deletable": true,
                   "hideable": true,
-                  "hideMobile": false
+                  "hideMobile": false,
+                  "_override": {
+                    "desktop": {
+                      "hideDesktop": false
+                    }
+                  }
                 }
               },
               {
@@ -825,7 +425,7 @@
                   "deletable": true,
                   "hideable": true,
                   "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">Ray-Ban</span></strong></span></p>"
+                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">Samsung Galaxy S22 Ultra 5G</span></strong></span></p>"
                 }
               },
               {
@@ -855,7 +455,7 @@
                   "deletable": true,
                   "hideable": true,
                   "hideMobile": false,
-                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">$25</span></strong></span></p>"
+                  "text": "<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 16px; line-height: 22.4px;\"><strong><span style=\"line-height: 22.4px; font-size: 16px;\">$1300</span></strong></span></p>"
                 }
               },
               {
@@ -866,8 +466,12 @@
                   "anchor": "",
                   "href": {
                     "name": "web",
+                    "attrs": {
+                      "href": "{{href}}",
+                      "target": "{{target}}"
+                    },
                     "values": {
-                      "href": "",
+                      "href": "http://localhost:3000/profile/",
                       "target": "_blank"
                     }
                   },

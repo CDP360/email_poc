@@ -44,9 +44,7 @@ const Bar = styled.div`
 
 const Example = (props) => {
   // const [user_name, setUserName] = useState();
-  const [logo, setLogo] = useState(
-    'https://assets.cdn.msgsndr.com/dJs02EcmedN7BV0yEpv4/media/62eb92ccef6fa889c148e24d.jpeg'
-  );
+
   const [image1, setImage1] = useState();
   const [image2, setImage2] = useState();
   const [image3, setImage3] = useState();
@@ -58,27 +56,30 @@ const Example = (props) => {
       .then((res) => {
         if (res.status == 200) {
           console.log('dsdsd', res.data);
-          let userName = 'kalai';
+          let userName = res.data[0][0].user_name;
+          localStorage.setItem('logo', res.data[0][0].dp);
           let htmlname = `<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">Hey ${userName}!</span></strong></p>`;
           localStorage.setItem('user_name', userName);
           localStorage.setItem('nameTag', htmlname);
-
-          res.data.forEach((element, num) => {
-            console.log(element.image);
-            if (num == 0) {
-              console.log('sss', element.image);
-              setImage1(element.image);
-              localStorage.setItem('img1', element.image);
-            }
-            if (num == 1) {
-              setImage2(element.image);
-              localStorage.setItem('img2', element.image);
-            }
-            if (num == 2) {
-              setImage3(element.image);
-              localStorage.setItem('img3', element.image);
-            }
-          });
+          localStorage.setItem('email', res.data[0][0].email);
+          if (res.data[0].length != 1) {
+            res.data[0].forEach((element, num) => {
+              console.log('000', res.data[0].length);
+              if (num == 0) {
+                console.log('sss', element.image);
+                setImage1(element.image);
+                localStorage.setItem('img1', element.image);
+                localStorage.setItem('title1', element.title);
+                localStorage.setItem('price1', element.price);
+              }
+              if (num == 1) {
+                setImage2(element.image);
+                localStorage.setItem('img2', element.image);
+                localStorage.setItem('title2', element.title);
+                localStorage.setItem('price2', element.price);
+              }
+            });
+          }
         }
       })
       .catch((err) => {
@@ -109,12 +110,16 @@ const Example = (props) => {
       axios
         .post(
           'http://localhost:8080/email/emailsent?name=vimal&email_id=' +
-            'vimal@cdp360.com',
+            localStorage.getItem('email'),
           data1
         )
         .then((res) => {
           console.log(res);
-          Email();
+          localStorage.removeItem('logo');
+          localStorage.removeItem('email');
+          localStorage.removeItem('user_name');
+          localStorage.removeItem('nameTag');
+          // Email();
         })
         .catch((err) => {
           console.log(err);
@@ -207,7 +212,9 @@ const Example = (props) => {
                   deletable: true,
                   hideable: true,
                   hideMobile: false,
-                  text: '<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">Ray-Ban</span></strong></span></p>',
+                  text: `<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">${localStorage.getItem(
+                    'title1'
+                  )}</span></strong></span></p>`,
                 },
               },
               {
@@ -237,7 +244,9 @@ const Example = (props) => {
                   deletable: true,
                   hideable: true,
                   hideMobile: false,
-                  text: '<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">$20</span></strong></span></p>',
+                  text: `<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">$${localStorage.getItem(
+                    'price1'
+                  )}</span></strong></span></p>`,
                 },
               },
               {
@@ -362,7 +371,9 @@ const Example = (props) => {
                   deletable: true,
                   hideable: true,
                   hideMobile: false,
-                  text: '<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">Ray-Ban</span></strong></span></p>',
+                  text: `<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">${localStorage.getItem(
+                    'title2'
+                  )}</span></strong></span></p>`,
                 },
               },
               {
@@ -392,7 +403,9 @@ const Example = (props) => {
                   deletable: true,
                   hideable: true,
                   hideMobile: false,
-                  text: '<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">$25</span></strong></span></p>',
+                  text: `<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px;"><strong><span style="line-height: 22.4px; font-size: 16px;">$${localStorage.getItem(
+                    'price2'
+                  )}</span></strong></span></p>`,
                 },
               },
               {
@@ -839,7 +852,7 @@ const Example = (props) => {
             if (j.type == 'image' && num == 0) {
               console.log(j.id);
               if (j.id == 'E6QqYzhIDp') {
-                j.values.src.url = logo;
+                j.values.src.url = localStorage.getItem('logo');
               }
               if (j.id == 'N89QkLpkI-') {
                 j.values.src.url = localStorage.getItem('img1');
@@ -847,9 +860,9 @@ const Example = (props) => {
               if (j.id == 'bSCv6xONew') {
                 j.values.src.url = localStorage.getItem('img2');
               }
-              if (j.id == 'bSCv6xONew1') {
-                j.values.src.url = localStorage.getItem('img3');
-              }
+              // if (j.id == 'bSCv6xONew1') {
+              //   j.values.src.url = localStorage.getItem('img3');
+              // }
             }
             if (j.type == 'text' && num == 2) {
               j.values.text = localStorage.getItem('nameTag');
