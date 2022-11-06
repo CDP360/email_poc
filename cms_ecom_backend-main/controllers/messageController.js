@@ -82,7 +82,7 @@ router.get("/cartlist", async (req, res) => {
   try {
     var list = [];
     let userFound = await User.find();
-    for (let index = 0; index < userFound.length; index++) {
+    for (let index = 1; index < userFound.length; index++) {
       const element = userFound[index];
       console.log("key", index, element._id);
       var idadd = [
