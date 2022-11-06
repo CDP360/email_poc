@@ -54,7 +54,7 @@ export default class extends Component {
       options.locale = this.props.locale;
     }
 
-    this.editor = unlayer.createEditor({
+    this.editor = window.unlayer.createEditor({
       ...options,
       id: this.editorId,
       displayMode: 'email',

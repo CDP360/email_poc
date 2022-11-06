@@ -82,7 +82,7 @@ router.get("/cartlist", async (req, res) => {
   try {
     var list = [];
     let userFound = await User.find();
-    for (let index = 1; index < userFound.length; index++) {
+    for (let index = 0; index < userFound.length; index++) {
       const element = userFound[index];
       console.log("key", index, element._id);
       var idadd = [
@@ -94,16 +94,16 @@ router.get("/cartlist", async (req, res) => {
         },
       ];
       console.log("ccc", element.wishedProducts.length);
-      if (element.wishedProducts.length != 0) {
-        for (const key in element.wishedProducts) {
-          let itemFound = await Product.findOne({
-            _id: element.wishedProducts[key],
-          }).select("_id title price image active");
+      // if (element.wishedProducts.length != 0) {
+      for (const key in element.wishedProducts) {
+        let itemFound = await Product.findOne({
+          _id: element.wishedProducts[key],
+        }).select("_id title price image active");
 
-          idadd.push(itemFound);
-        }
-        list.push(idadd);
+        idadd.push(itemFound);
       }
+      list.push(idadd);
+      // }
     }
     res.status(200).json(list);
   } catch (err) {

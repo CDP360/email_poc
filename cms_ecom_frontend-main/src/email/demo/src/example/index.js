@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import EmailEditor from '../../../../email';
 const dataSample = require('./sample.json');
+const dataSample1 = require('./sample1.json');
 
 var data = dataSample;
 
@@ -45,40 +46,45 @@ const Bar = styled.div`
 const Example = (props) => {
   // const [user_name, setUserName] = useState();
 
-  const [image1, setImage1] = useState();
-  const [image2, setImage2] = useState();
-  const [image3, setImage3] = useState();
-
   useEffect(() => {
-    let id = '6360fbb6ce0d9a5eea8c9627';
+    localStorage.clear();
     axios
       .get('http://localhost:8080/messages/cartlist')
       .then((res) => {
         if (res.status == 200) {
           console.log('dsdsd', res.data);
-          let userName = res.data[0][0].user_name;
-          localStorage.setItem('logo', res.data[0][0].dp);
-          let htmlname = `<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">Hey ${userName}!</span></strong></p>`;
-          localStorage.setItem('user_name', userName);
-          localStorage.setItem('nameTag', htmlname);
-          localStorage.setItem('email', res.data[0][0].email);
-          if (res.data[0].length != 1) {
-            res.data[0].forEach((element, num) => {
-              console.log('000', res.data[0].length);
-              if (num == 0) {
-                console.log('sss', element.image);
-                setImage1(element.image);
-                localStorage.setItem('img1', element.image);
-                localStorage.setItem('title1', element.title);
-                localStorage.setItem('price1', element.price);
-              }
-              if (num == 1) {
-                setImage2(element.image);
-                localStorage.setItem('img2', element.image);
-                localStorage.setItem('title2', element.title);
-                localStorage.setItem('price2', element.price);
-              }
-            });
+          for (let index = 0; index < res.data.length; index++) {
+            setTimeout(function () {
+              const element = res.data[index];
+
+              let userName = element[0].user_name;
+              localStorage.setItem('logo', element[0].dp);
+              let htmlname = `<p style=\"line-height: 140%; text-align: center; font-size: 14px;\"><strong><span style=\"font-size: 16px; line-height: 22.4px;\">Hey ${userName}!</span></strong></p>`;
+              localStorage.setItem('user_name', userName);
+              localStorage.setItem('nameTag', htmlname);
+              localStorage.setItem('email', element[0].email);
+
+              // if (element.length != 1) {
+              element.forEach((item, num) => {
+                console.log('000', element.length);
+                if (num == 1) {
+                  console.log('sss', item.image);
+                  localStorage.setItem('img1', item.image);
+                  localStorage.setItem('title1', item.title);
+                  localStorage.setItem('price1', item.price);
+                }
+                if (num == 2) {
+                  localStorage.setItem('img2', item.image);
+                  localStorage.setItem('title2', item.title);
+                  localStorage.setItem('price2', item.price);
+                }
+              });
+              // }
+              onLoad();
+              setTimeout(function () {
+                exportHtml();
+              }, 5000);
+            }, 5000);
           }
         }
       })
@@ -882,6 +888,9 @@ const Example = (props) => {
       });
       data.body.rows = result;
     }
+    setTimeout(() => {
+      emailEditorRef.current.editor.loadDesign(data);
+    }, 10000);
     emailEditorRef.current.editor.loadDesign(data);
   };
 
