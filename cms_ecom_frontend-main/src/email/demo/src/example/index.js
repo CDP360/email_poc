@@ -48,11 +48,13 @@ const Example = (props) => {
 
   useEffect(() => {
     localStorage.clear();
-    load();
   }, []);
 
   // console.log('x1', image1);
 
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
   const load = () => {
     axios
       .get('http://localhost:8080/messages/cartlist')
@@ -60,7 +62,9 @@ const Example = (props) => {
         if (res.status == 200) {
           console.log('dsdsd', res.data);
           for (let index = 0; index < res.data.length; index++) {
-            setTimeout(function () {
+            setTimeout(async function () {
+              await sleep(index * 5000);
+
               const element = res.data[index];
 
               let userName = element[0].user_name;
@@ -100,11 +104,6 @@ const Example = (props) => {
 
               // load design .....
               console.log('onLoad');
-
-              emailEditorRef.current.editor.addEventListener(
-                'design:loaded',
-                onDesignLoad
-              );
 
               var cartList = [
                 {
@@ -832,11 +831,17 @@ const Example = (props) => {
                 });
                 data.body.rows = result;
               }
-              setTimeout(() => {
-                emailEditorRef.current.editor.loadDesign(data);
-              }, 1000);
+
+              // await sleep(index * 5000);
+
+              emailEditorRef.current.editor.addEventListener(
+                'design:loaded',
+                onDesignLoad
+              );
+              emailEditorRef.current.editor.loadDesign(data);
 
               // export mail
+              // await sleep(index * 1000);
 
               emailEditorRef.current.editor.exportHtml((data) => {
                 const { design, html } = data;
@@ -893,13 +898,12 @@ const Example = (props) => {
   };
 
   return (
-    <Container>
-      <Bar>
+    <Container style={{ height: '670px' }}>
+      {/* <Bar>
         <h1>CDP360</h1>
-
         <button onClick={saveDesign}>Save Design</button>
         <button onClick={exportHtml}>Send Mail</button>
-      </Bar>
+      </Bar> */}
 
       <React.StrictMode>
         <EmailEditor ref={emailEditorRef} onLoad={load} onReady={onReady} />
