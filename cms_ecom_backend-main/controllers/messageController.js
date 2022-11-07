@@ -3,9 +3,11 @@ const ChatRoom = require("../models/ChatRoom");
 const User = require("../models/User");
 const Product = require("../models/Product");
 const messageService = require("../services/messageService");
+// mail client
+let nodemailer = require("nodemailer");
 // mail setup .env variable
-// Load the AWS SDK for Node.js
-var AWS = require("aws-sdk");
+const fromMail = "vinoth@cdp360.com";
+const pss = "89E4557162E4281FD373B4C0D7F79F70FB04";
 
 router.post("/createChatRoom", async (req, res) => {
   const { message, receiver } = req.body;
@@ -41,50 +43,37 @@ router.post("/sendMessage", async (req, res) => {
     { $push: { conversation: { senderId: req.user._id, message } } }
   );
 
-  console.log(chat);
+  // console.log(chat);
   res.status(200).json({ sender: req.user._id });
 });
 
-router.post("/emailsent", async (req, res) => {
-  // Create sendEmail params
-  var params = {
-    Destination: {
-      ToAddresses: [req.query.email_id],
-    },
-    Message: {
-      Body: {
-        Html: {
-          Charset: "UTF-8",
-          Data: req.body.data,
-        },
-      },
-      Subject: {
-        Charset: "UTF-8",
-        Data: "CDP360 - Product List",
-      },
-    },
-    Source: "vimal@cdp360.com" /* required */,
-    ReplyToAddresses: ["vimal@cdp360.com"],
-  };
-  // Set the region
-  var sesConfig = {
-    accessKeyId: "AKIASRFPN37OIWEVYFUP",
-    secretAccessKey: "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",
-    region: "ap-south-1",
-  };
-  // Create the promise and SES service object
-  var SES = new AWS.SES(sesConfig);
-  var sendPromise = SES.sendEmail(params).promise();
+// mail setup
+let transporter = nodemailer.createTransport({
+  host: "smtp.elasticemail.com",
+  port: 2525,
+  auth: {
+    user: fromMail,
+    pass: pss,
+  },
+});
 
-  // Handle promise's fulfilled/rejected states
-  sendPromise
-    .then(function (data) {
-      console.log(data.MessageId);
-      res.status(200).json({ sender: "mail sent id : " + data.MessageId });
-    })
-    .catch(function (err) {
-      console.error(err, err.stack);
-    });
+router.post("/emailsent", async (req, res) => {
+  let mailOptions = {
+    from: fromMail,
+    to: req.query.email_id,
+    subject: "Mail from CDP360",
+    html: req.body.data,
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      return res.status(400).json({ message: "Invaild Email " + error });
+    } else {
+      if (info.response) {
+        return res.status(201).json(info.response);
+      }
+    }
+  });
 
   //   res.status(200).json({ sender: "mail sent" });
 });
@@ -95,7 +84,7 @@ router.get("/cartlist", async (req, res) => {
     let userFound = await User.find();
     for (let index = 1; index < userFound.length; index++) {
       const element = userFound[index];
-      console.log("key", index, element._id);
+      // console.log("key", index, element._id);
       var idadd = [
         {
           user_id: element._id,
@@ -104,7 +93,7 @@ router.get("/cartlist", async (req, res) => {
           dp: element.avatar,
         },
       ];
-      console.log("ccc", element.wishedProducts.length);
+      // console.log("ccc", element.wishedProducts.length);
       // if (element.wishedProducts.length != 0) {
       for (const key in element.wishedProducts) {
         let itemFound = await Product.findOne({
