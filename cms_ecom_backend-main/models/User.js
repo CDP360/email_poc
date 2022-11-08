@@ -54,6 +54,24 @@ const userSchema = new mongoose.Schema({
       ref: "RecentViewed",
     },
   ],
+  type: {
+    type: String,
+  },
+  cookiesInfo: [
+    {
+      network: { type: String },
+      ip: { type: String },
+      city: { type: String },
+      region: { type: String },
+      country_name: { type: String },
+      country_code: { type: String },
+      postal: { type: String },
+      latitude: { type: String },
+      logitude: { type: String },
+      currency_name: { type: String },
+      country_area: { type: Number },
+    },
+  ],
   wishedProducts: [
     {
       type: mongoose.Schema.Types.ObjectId,
