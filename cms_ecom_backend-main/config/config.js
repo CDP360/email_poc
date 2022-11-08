@@ -1,4 +1,4 @@
-const TABLE_NAME = "all-for-you";
+const TABLE_NAME = "cdp360";
 const config = {
   PORT: process.env.PORT || 8080,
   //DB_CONNECTION: `mongodb://localhost/${TABLE_NAME}`,

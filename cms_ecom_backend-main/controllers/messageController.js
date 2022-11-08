@@ -111,4 +111,43 @@ router.get("/cartlist", async (req, res) => {
   }
 });
 
+router.post("/viewlist", async (req, res) => {
+  try {
+    var list = [];
+    let userFound = await User.find();
+    for (let index = 1; index < userFound.length; index++) {
+      const element = userFound[index];
+      // console.log("key", index, element._id);
+      var idadd = [
+        {
+          user_id: element._id,
+          user_name: element.name,
+          email: element.email,
+          dp: element.avatar,
+        },
+      ];
+      // console.log("ccc", element.wishedProducts.length);
+      // if (element.wishedProducts.length != 0) {
+      for (const key in element.wishedProducts) {
+        let itemFound = await Product.findOne({
+          _id: element.wishedProducts[key],
+        }).select("_id title price image active");
+
+        idadd.push(itemFound);
+      }
+      list.push(idadd);
+      // }
+    }
+    res.status(200).json(list);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/recently-viewed", async (res, req) => {
+  const userFound = await User.findById(req.body.user_id);
+  userFound.recentViewed.push(req.body.product_id);
+  return res.status(201).json(userFound);
+});
+
 module.exports = router;
