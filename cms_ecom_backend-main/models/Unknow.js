@@ -15,17 +15,9 @@ const unknowSchema = new mongoose.Schema({
   type: {
     type: String,
   },
-  network: { type: String },
-  ip: { type: String },
+  ip: { type: String, unique: true },
   city: { type: String },
-  region: { type: String },
   country_name: { type: String },
-  country_code: { type: String },
-  postal: { type: String },
-  latitude: { type: String },
-  logitude: { type: String },
-  currency_name: { type: String },
-  country_area: { type: Number },
 });
 
 module.exports = mongoose.model("Unknows", unknowSchema);
