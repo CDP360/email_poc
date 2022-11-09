@@ -15,7 +15,7 @@ const unknowSchema = new mongoose.Schema({
   type: {
     type: String,
   },
-  ip: { type: String, unique: true },
+  ip: { type: String, unique: true, required: ["ip is required"] },
   city: { type: String },
   country_name: { type: String },
 });

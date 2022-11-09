@@ -22,6 +22,7 @@ router.post("/unknow-register", async (req, res) => {
     const addData = new Unknow({
       ip: req.body.ip,
       city: req.body.city,
+      type: "unknow",
       country_name: req.body.country_name,
     });
     const saveUnknowUser = await addData.save();
