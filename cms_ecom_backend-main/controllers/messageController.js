@@ -111,6 +111,7 @@ router.get("/cartlist", async (req, res) => {
   }
 });
 
+
 router.post("/viewlist", async (req, res) => {
   try {
     var list = [];
@@ -142,12 +143,6 @@ router.post("/viewlist", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
-
-router.post("/recently-viewed", async (res, req) => {
-  const userFound = await User.findById(req.body.user_id);
-  userFound.recentViewed.push(req.body.product_id);
-  return res.status(201).json(userFound);
 });
 
 module.exports = router;

@@ -8,8 +8,7 @@ const unknowSchema = new mongoose.Schema({
   },
   recentViewed: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "RecentViewed",
+      type: String 
     },
   ],
   type: {
